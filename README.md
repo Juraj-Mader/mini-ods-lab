@@ -96,7 +96,7 @@ docs/incidents/  incident reports from simulated failures
 
 | # | Status | Step | Real support task it simulates |
 |---|---|---|---|
-| 1 | ⬜ | Environment: Oracle Free in Docker, schemas, seed data | environment management |
+| 1 | ✅ | Environment: Oracle Free in Docker, schemas, seed data | environment management |
 | 2 | ⬜ | `EXTRACT_ORDERS`: copy changed orders into staging | data pump from a source system |
 | 3 | ⬜ | `LOAD_ORDERS`: validate, load to target, log every run | batch processing |
 | 4 | ⬜ | Schedule both jobs with `DBMS_SCHEDULER` | job scheduling |
