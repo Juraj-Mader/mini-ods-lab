@@ -1,0 +1,14 @@
+# Secrets
+.env
+
+# Logs and local output
+*.log
+out/
+
+# IDE
+.idea/
+*.iml
+
+# Python (AI helper, later)
+__pycache__/
+.venv/

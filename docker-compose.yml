@@ -1,0 +1,25 @@
+services:
+  oracle:
+    # Oracle AI Database Free (community image by Gerald Venzl, Oracle PM)
+    image: gvenzl/oracle-free:latest
+    container_name: mini-ods-db
+    ports:
+      - "1521:1521"
+    environment:
+      ORACLE_PASSWORD: ${ORACLE_PASSWORD}
+      SRC_APP_PASSWORD: ${SRC_APP_PASSWORD}
+      ODS_APP_PASSWORD: ${ODS_APP_PASSWORD}
+    volumes:
+      # Database files survive container restarts
+      - oracle-data:/opt/oracle/oradata
+      # Init scripts run once, in alphabetical order, when the database is created
+      - ./db/init:/container-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD", "healthcheck.sh"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 5s
+
+volumes:
+  oracle-data:
